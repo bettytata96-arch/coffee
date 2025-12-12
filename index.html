@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coffee website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"></link>
+    <!--linking font awesome for icons-->
     <link rel="stylesheet" href="styleB.css">
 </head>
 <body>
@@ -14,22 +16,22 @@
                 <h2 class="logo-text"> ☕️ Coffee</h2>
             </a>
             <ul class="nav-menu">
+                <button id="menu-close-button" class="fas fa-times"></button>
                 <li class="nav-item">
                     <a href="#" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">About</a>
+                    <a href="#about" class="nav-link">About</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Menu</a>
+                    <a href="#menu" class="nav-link">Menu</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Gallery</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Contact</a>
+                    <a href="#contact" class="nav-link">Contact</a>
                 </li>
             </ul>
+
+            <button id="menu-open-button" class="fas fa-bars"></button>
         </nav>
     </header>
     <main>
@@ -37,7 +39,7 @@
             <div class="section-content">
                 <div class="hero-details">
                     <h2 class="title">Best Coffee</h2>
-                <h3 class="subtitle">Make your day great with our special Coffee</h3>
+                <h3 class="subtitle">Make your day great with special Coffee</h3>
             <p class="description">Welcome to our Coffee paradise, where every bean tells a story add every cup sparks joy.</p>
         <div class="button">
             <a href="#" class="button order-now">Order now</a>
@@ -49,6 +51,125 @@
         </div>
             </div>
         </section>
+        <!--About sectino-->
+        <section class="about-section" id="about">
+            <div class="section-content">
+                <div class="about-image-wrapper">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLpgtYYwooBnmH541WxJfAhMhJPHCJ5zQPEA&s" alt="about" class="about-image">
+                </div>
+                <div class="about-details">
+                    <h2 class="section-title">About Us</h2>
+                    <p class="text">Coffee in Ethiopia isn’t just a drink,
+                         it’s a whole personality. The beans grow wild in the highlands, 
+                         soaking up sun and mist like they’re posing for a magazine cover.
+                          Every region has its own flavor story. Yirgacheffe is bright and floral,
+                           Sidamo leans smooth and sweet, and Harrar hits you with blueberry notes like it’s
+                            showing off. People roast and brew it as part of a traditional ceremony that can take 
+                            an hour, but nobody complains because the whole thing feels like a slow ritual of patience
+                             and warmth. When you sip Ethiopian coffee, you’re tasting where coffee was born, shaped by mountains, soil,
+                              and people who treat it with real respect.
+                            </p>
+                            <div class="social-link-list">
+                                <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i></a>
+                                <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>
+                            </div>
+                </div>
+            </div>
+        </section>
+
+        <!--meun section-->
+        <section class="menu-section"id="menu">
+            <h2 class="section-title">Menu</h2>
+            <div class="section-content">
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <img src="https://www.nicepng.com/png/full/115-1152580_related-image-hot-drinks-png.png" 
+                        class="menu-image">
+                        <div class="menu-details">
+                        <h3 class="name">Hot Beverages</h3>
+                        <p class="text">wide range of streaming hot coffee to make you fresh and light.</p>
+                    </div>
+                </li>
+                    
+                    <li class="menu-item">
+                        <img src="https://www.pngplay.com/wp-content/uploads/8/Starbucks-Coffee-PNG-HD-Quality.png" 
+                        class="menu-image">
+                        <div class="menu-details">
+                        <h3 class="name">Black coffee</h3>
+                        <p class="text">Pure brewed coffee with a bold, rich flavor.</p>
+                    </div>
+                </li>
+                    <li class="menu-item">
+                        <img src="https://i.pinimg.com/originals/38/b7/bb/38b7bbaca896a1c24cece56dcff59e91.png"  class="menu-image">
+                        <div class="menu-details">
+                        <h3 class="name">Irish Coffee</h3>
+                        <p class="text">Coffee blended with Irish whiskey, sugar, and topped with cream</p>
+                    </div>
+                </li>
+                    <li class="menu-item">
+                        <img src="https://t4.ftcdn.net/jpg/05/71/62/37/360_F_571623793_RvsWqUDbD53pXbk6t6lUOUrO3zz86EpW.png"class="menu-image">
+                        <div class="menu-details">
+                        <h3 class="name">Latte</h3>
+                        <p class="text">Espresso mixed with steamed milk and a thin layer of foam</p>
+                    </div>
+                </li>
+                    <li class="menu-item">
+                        <img src="https://png.pngtree.com/png-clipart/20250806/original/pngtree-frappe-coffee-with-cream-swirl-png-image_21503505.png"class="menu-image">
+                        <div class="menu-details">
+                        <h3 class="name">Ice americano</h3>
+                        <p class="text">Espresso poured over ice and cold water; refreshing and strong</p>
+                    </div>
+                </li>
+                    <li class="menu-item">
+                        <img src="https://png.pngtree.com/png-vector/20240812/ourmid/pngtree-coffee-americano-in-a-transparent-glass-mug-isolated-on-white-background-png-image_13458261.png"class="menu-image">
+                        <div class="menu-details">
+                        <h3 class="name">Espresso</h3>
+                        <p class="text">Strong, concentrated coffee served in a small shot</p>
+                    </div>
+                </li>
+                </ul>
+            </div>
+        </section>
+        <!--contact section-->
+        <section class="contact-section" id="contact">
+            <h2 class="section-title"> Contact Us</h2>
+            <div class="section-content">
+                <ul class="contact-info-list">
+                    <li class="contact-info">
+                        <i class="fa-solid fa-clock"></i>
+                    <p>Monday - Friday: 9:00 am - 10:00 pm</p>
+                </li>
+                <li class="contact-info">
+                        <i class="fa-solid fa-location-crosshais"></i>
+                    <p> 123 compsite avenue, wilderness, ca 98745 </p>
+            
+                </ul>
+                <form action="#" class="contact-form">
+                    <input type="text" placeholder="Your name" class="form-input " required>
+              <input type="email" placeholder="Your email" class="form-input " required>
+            <textarea placeholder="your message" class="form-input" required></textarea>  
+            <button class=" submit-button">submit</button>
+            </div>
+        </section>
+<!--footer section-->
+<footer class="footer-section">
+    <div class="section-content">
+        <p class="copyrighy-text">@2025 coffee</p>
+
+        <div class="social-link-list">
+            <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i></a>
+                                <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>
+                            
+        </div>
+        <p class="policy-text">
+            <a href="#" class="policy-link">privacy policy</a>
+            <span class="separator">.</span>
+            <a href="#" class="policy-link">Refund policy</a>
+        </p>
+    </div>
+</footer>
     </main>
 </body>
 </html>
