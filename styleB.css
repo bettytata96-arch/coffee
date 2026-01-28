@@ -433,3 +433,78 @@ header .navbar{
 
     }
 }
+
+/*Order Section Styling*/
+
+.order-section {
+    padding: 80px 0 120px;
+    background: linear-gradient(135deg, #3b141c, #1f1e1e);
+}
+
+.order-section .section-title {
+    color: #fff;
+}
+
+.order-form {
+    max-width: 420px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 35px 30px;
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Inputs & Select */
+.order-form input,
+.order-form select {
+    height: 45px;
+    padding: 0 12px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: 0.2s ease;
+}
+
+.order-form input:focus,
+.order-form select:focus {
+    border-color: #f3961c;
+    box-shadow: 0 0 0 2px rgba(243, 150, 28, 0.2);
+}
+
+/* Total Price */
+.order-form p {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #3b141c;
+    margin-top: 10px;
+}
+
+/* Button */
+.order-form button {
+    margin-top: 10px;
+    padding: 12px;
+    background: #3b141c;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.order-form button:hover {
+    background: #f3961c;
+    color: #000;
+}
+
+/* Small screens */
+@media screen and (max-width: 500px) {
+    .order-form {
+        margin: 0 15px;
+        padding: 30px 20px;
+    }
+}
