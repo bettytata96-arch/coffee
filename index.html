@@ -32,6 +32,7 @@
             </ul>
 
             <button id="menu-open-button" class="fas fa-bars"></button>
+            <form class="contact-form"></form>
         </nav>
     </header>
     <main>
@@ -42,8 +43,8 @@
                 <h3 class="subtitle">Make your day great with special Coffee</h3>
             <p class="description">Welcome to our Coffee paradise, where every bean tells a story add every cup sparks joy.</p>
         <div class="button">
-            <a href="#" class="button order-now">Order now</a>
-            <a href="#" class="button Contact-us">Contact us</a>
+            <a href="#order" class="button order-now">Order now</a>
+            <a href="#contact" class="button contact-us">Contact us</a>
         </div>
         </div>
         <div class="hero-image-wrapper">
@@ -51,6 +52,36 @@
         </div>
             </div>
         </section>
+        <!-- Order Section -->
+<section class="order-section" id="order">
+    <h2 class="section-title">Order Coffee</h2>
+
+    <form class="order-form">
+        <input type="text" id="customerName" placeholder="Your Name" required>
+        <input type="email" id="customerEmail" placeholder="Your Email" required>
+
+        <select id="coffeeType" required>
+            <option value="">Select Coffee</option>
+            <option value="Espresso">Espresso - 200 Birr</option>
+            <option value="Latte">Latte - 350 birr</option>
+            <option value="Black Coffee">Black Coffee - 100 Birr</option>
+            <option value="Irish Coffee">Irish Coffee - 160 Birr</option>
+        </select>
+
+        <input type="number" id="quantity" min="1" value="1">
+
+        <p><strong>Total: <span id="totalPrice">0</span></strong></p>
+
+        <select id="paymentMethod" required>
+            <option value="">Payment Method</option>
+            <option value="Cash">Cash</option>
+            <option value="Card">Card</option>
+        </select>
+
+        <button type="submit">Confirm Order</button>
+    </form>
+</section>
+
         <!--About sectino-->
         <section class="about-section" id="about">
             <div class="section-content">
@@ -171,5 +202,6 @@
     </div>
 </footer>
     </main>
+    <script src="script2.js"></script>
 </body>
 </html>
