@@ -18,11 +18,11 @@ The website presents a coffee-related theme with different pages showcasing cont
 
 ## How to Run the Project
 1. Download or clone the repository.
-2. Open the `coffee.html` file in any modern web browser.
+2. Open the `index.html` file in any modern web browser.
 3. Navigate through the pages using the links provided.
 
 ## Project Structure
-- `coffee.html` – Main page
+- `index.html` – Main page
 - `gallery.html` – Image gallery page
 - `review.html` – Review/content page
 - `styleB.css` – External stylesheet
