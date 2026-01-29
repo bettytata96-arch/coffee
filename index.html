@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="styleB.css">
 </head>
 <body>
+    
     <!--header / navbar-->
     <header>
         <nav class="navbar section-content">
@@ -29,6 +30,11 @@
                 <li class="nav-item">
                     <a href="#contact" class="nav-link">Contact</a>
                 </li>
+            <!-- PAGE BUTTONS (different files) -->
+            <li class="nav-item">
+                <a href="gallery.html" class="nav-link">Gallery</a></li>
+            <li class="nav-item">
+                <a href="review.html" class="nav-link">Reviews</a></li>
             </ul>
 
             <button id="menu-open-button" class="fas fa-bars"></button>
@@ -52,6 +58,22 @@
         </div>
             </div>
         </section>
+        <!-- HOME PAGE CONNECTION BUTTONS -->
+<section class="page-links">
+    <h2>Explore More</h2>
+    
+    <!-- Button to go to Gallery page -->
+    <a href="gallery.html" class="page-button">
+        <span>📸 Photo Gallery</span>
+        <small>See our coffee photos</small>
+    </a>
+    
+    <!-- Button to go to Reviews page -->
+    <a href="review.html" class="page-button">
+        <span>⭐ Customer Reviews</span>
+        <small>Read what customers say</small>
+    </a>
+</section>
         <!-- Order Section -->
 <section class="order-section" id="order">
     <h2 class="section-title">Order Coffee</h2>
@@ -167,15 +189,26 @@
             <h2 class="section-title"> Contact Us</h2>
             <div class="section-content">
                 <ul class="contact-info-list">
-                    <li class="contact-info">
-                        <i class="fa-solid fa-clock"></i>
-                    <p>Monday - Friday: 9:00 am - 10:00 pm</p>
-                </li>
-                <li class="contact-info">
-                        <i class="fa-solid fa-location-crosshais"></i>
-                    <p> 123 compsite avenue, wilderness, ca 98745 </p>
-            
-                </ul>
+    <li class="contact-info">
+        <i class="fa-solid fa-clock"></i>
+        <p>Monday - Friday: 9:00 am - 10:00 pm</p>
+    </li>
+
+    <li class="contact-info">
+        <i class="fa-solid fa-location-crosshais"></i>
+        <p> 123 compsite avenue, wilderness, ca 98745 </p>
+    </li>
+
+    <li class="contact-info">
+        <i class="fa-solid fa-envelope"></i>
+        <p>
+            <a href="mailto:betitata96@gmail.com">
+                betitata96@gmail.com
+            </a>
+        </p>
+    </li>
+</ul>
+
                 <form action="#" class="contact-form">
                     <input type="text" placeholder="Your name" class="form-input " required>
               <input type="email" placeholder="Your email" class="form-input " required>
