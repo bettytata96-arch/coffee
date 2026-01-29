@@ -1,6 +1,4 @@
-// ===============================
 // MENU TOGGLE (already required)
-// ===============================
 const menuOpenBtn = document.getElementById("menu-open-button");
 const menuCloseBtn = document.getElementById("menu-close-button");
 const navMenu = document.querySelector(".nav-menu");
@@ -19,10 +17,7 @@ document.querySelectorAll(".nav-link").forEach(link => {
     });
 });
 
-
-// ===============================
 // ORDER SYSTEM
-// ===============================
 const coffeePrices = {
     "Espresso": 200,
     "Latte": 350,
@@ -44,9 +39,8 @@ coffeeType.addEventListener("change", updateTotal);
 quantity.addEventListener("input", updateTotal);
 
 
-// ===============================
 // ORDER SUBMIT + FAKE PAYMENT
-// ===============================
+
 orderForm.addEventListener("submit", function (e) {
     e.preventDefault();
 
@@ -86,10 +80,8 @@ orderForm.addEventListener("submit", function (e) {
     }, 1000);
 });
 
-
-// ===============================
 // EMAIL FUNCTION (mailto)
-// ===============================
+
 function sendEmail(order) {
     const subject = "New Coffee Order";
     const body =
@@ -104,3 +96,4 @@ function sendEmail(order) {
     window.location.href =
         `mailto:betitata96@gmail.com?subject=${subject}&body=${body}`;
 }
+
