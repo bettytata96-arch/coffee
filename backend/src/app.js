@@ -14,8 +14,10 @@ app.get('/api/health', (req, res) => {
     res.json({ status: 'ok', message: 'Coffee shop API is running' });
 });
 
-// Routes will be added here later (auth, menu, orders, reviews)
-
+const authRoutes = require('./routes/authRoutes');
+app.use('/api/auth', authRoutes);
+const menuRoutes = require('./routes/menuRoutes');
+app.use('/api/menu', menuRoutes);
 // 404 handler
 app.use((req, res) => {
     res.status(404).json({ error: 'Route not found' });
