@@ -18,6 +18,8 @@ const authRoutes = require('./routes/authRoutes');
 app.use('/api/auth', authRoutes);
 const menuRoutes = require('./routes/menuRoutes');
 app.use('/api/menu', menuRoutes);
+const orderRoutes = require('./routes/orderRoutes');
+app.use('/api/orders', orderRoutes);
 // 404 handler
 app.use((req, res) => {
     res.status(404).json({ error: 'Route not found' });
