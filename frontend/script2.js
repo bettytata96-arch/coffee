@@ -27,6 +27,16 @@ const coffeePrices = {
     "Irish Coffee": 160
 };
 
+// Maps coffee names to their real menu_item IDs in the database.
+// IMPORTANT: these numbers must match the ids you saw in GET /api/menu.
+// Adjust if your ids are different.
+const coffeeMenuIds = {
+    "Espresso": 1,
+    "Latte": 2,
+    "Black Coffee": 3,
+    "Irish Coffee": 4
+};
+
 const coffeeType = document.getElementById("coffeeType");
 const quantity = document.getElementById("quantity");
 const totalPrice = document.getElementById("totalPrice");
@@ -40,6 +50,57 @@ function updateTotal() {
 coffeeType.addEventListener("change", updateTotal);
 quantity.addEventListener("input", updateTotal);
 
+const API_BASE = 'http://localhost:5000/api';
+
+orderForm.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    // Require login before placing an order
+    if (!requireLogin()) return;
+
+    const coffee = coffeeType.value;
+    const qty = parseInt(quantity.value, 10);
+    const payment = document.getElementById("paymentMethod").value;
+
+    if (!coffee || !payment || !qty || qty < 1) {
+        alert("Please fill in all fields.");
+        return;
+    }
+
+    const menuItemId = coffeeMenuIds[coffee];
+    if (!menuItemId) {
+        alert("Something went wrong identifying that coffee. Please try again.");
+        return;
+    }
+
+    try {
+        const res = await fetch(`${API_BASE}/orders`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${getToken()}`
+            },
+            body: JSON.stringify({
+                paymentMethod: payment,
+                items: [{ menuItemId, quantity: qty }]
+            })
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+            alert(data.error || 'Failed to place order');
+            return;
+        }
+
+        alert(`Order placed successfully! Total: ${data.order.total_price} Birr`);
+        orderForm.reset();
+        totalPrice.textContent = "0";
+    } catch (err) {
+        alert('Something went wrong placing your order.');
+        console.error(err);
+    }
+});
 // ORDER SUBMIT + FAKE PAYMENT
 
 orderForm.addEventListener("submit", function (e) {

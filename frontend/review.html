@@ -10,7 +10,7 @@
 
 <header>
     <nav class="navbar section-content">
-        <a href="coffee.html" class="nav-logo">
+        <a href="index.html" class="nav-logo">
             <h2 class="logo-text">☕️ Coffee</h2>
         </a>
         <ul class="nav-menu">
@@ -25,29 +25,25 @@
 <section class="review-section">
     <h2 class="section-title">Customer Reviews</h2>
 
-    <div class="review-container">
+    <!-- Review submission form -->
+    <div class="review-form-wrapper">
+        <form id="reviewForm" class="review-form">
+            <h3>Leave a Review</h3>
+            <select id="reviewRating" required>
+                <option value="">Rating</option>
+                <option value="5">⭐⭐⭐⭐⭐ (5)</option>
+                <option value="4">⭐⭐⭐⭐ (4)</option>
+                <option value="3">⭐⭐⭐ (3)</option>
+                <option value="2">⭐⭐ (2)</option>
+                <option value="1">⭐ (1)</option>
+            </select>
+            <textarea id="reviewComment" placeholder="Share your experience..." required></textarea>
+            <button type="submit">Submit Review</button>
+        </form>
+    </div>
 
-        <div class="review-card">
-            <p class="review-text">
-                “Best coffee I’ve had in Addis! Rich flavor and great atmosphere.”
-            </p>
-            <p class="review-author">⭐⭐⭐⭐⭐ — Samuel</p>
-        </div>
-
-        <div class="review-card">
-            <p class="review-text">
-                “Loved the latte and the service. Will definitely come again.”
-            </p>
-            <p class="review-author">⭐⭐⭐⭐ — Hana</p>
-        </div>
-
-        <div class="review-card">
-            <p class="review-text">
-                “Authentic Ethiopian coffee experience. Highly recommended.”
-            </p>
-            <p class="review-author">⭐⭐⭐⭐⭐ — Dawit</p>
-        </div>
-
+    <div class="review-container" id="reviewContainer">
+        <p style="color:white; text-align:center;">Loading reviews...</p>
     </div>
 </section>
 </main>
@@ -58,5 +54,83 @@
     </div>
 </footer>
 
+<script src="auth.js"></script>
+<script>
+    const API_BASE = 'http://localhost:5000/api';
+
+    // Load and display all reviews
+    async function loadReviews() {
+        const container = document.getElementById('reviewContainer');
+        try {
+            const res = await fetch(`${API_BASE}/reviews`);
+            const reviews = await res.json();
+
+            if (reviews.length === 0) {
+                container.innerHTML = '<p style="color:white; text-align:center;">No reviews yet. Be the first!</p>';
+                return;
+            }
+
+            container.innerHTML = reviews.map(r => `
+                <div class="review-card">
+                    <p class="review-text">"${escapeHtml(r.comment)}"</p>
+                    <p class="review-author">${'⭐'.repeat(r.rating)} — ${escapeHtml(r.author)}</p>
+                </div>
+            `).join('');
+        } catch (err) {
+            container.innerHTML = '<p style="color:white; text-align:center;">Failed to load reviews.</p>';
+            console.error(err);
+        }
+    }
+
+    // Basic HTML escaping to prevent injection when rendering user text
+    function escapeHtml(str) {
+        const div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+    }
+
+    // Handle review form submission
+    document.getElementById('reviewForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // Require login before submitting
+        if (!requireLogin()) return;
+
+        const rating = document.getElementById('reviewRating').value;
+        const comment = document.getElementById('reviewComment').value.trim();
+
+        if (!rating || !comment) {
+            alert('Please select a rating and write a comment.');
+            return;
+        }
+
+        try {
+            const res = await fetch(`${API_BASE}/reviews`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${getToken()}`
+                },
+                body: JSON.stringify({ rating: Number(rating), comment })
+            });
+
+            const data = await res.json();
+
+            if (!res.ok) {
+                alert(data.error || 'Failed to submit review');
+                return;
+            }
+
+            alert('Review submitted, thank you!');
+            document.getElementById('reviewForm').reset();
+            loadReviews(); // refresh the list
+        } catch (err) {
+            alert('Something went wrong submitting your review.');
+            console.error(err);
+        }
+    });
+
+    loadReviews();
+</script>
 </body>
 </html>

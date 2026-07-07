@@ -729,3 +729,128 @@ header .navbar{
     color: #D4A574;
     font-size: 0.9rem;
 }
+
+/* AUTH (LOGIN/REGISTER) PAGE STYLING */
+.auth-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #3b141c, #1f1e1e);
+    padding: 100px 20px 40px;
+}
+
+.auth-box {
+    max-width: 400px;
+    width: 100%;
+    background: #fff;
+    padding: 40px 35px;
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.auth-form input {
+    height: 45px;
+    padding: 0 12px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.auth-form input:focus {
+    border-color: #f3961c;
+}
+
+.auth-form button {
+    margin-top: 10px;
+    padding: 12px;
+    background: #3b141c;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.auth-form button:hover {
+    background: #f3961c;
+    color: #000;
+}
+
+.auth-switch {
+    text-align: center;
+    margin-top: 20px;
+    color: #333;
+}
+
+.auth-switch a {
+    color: #f3961c;
+    font-weight: 600;
+}
+
+/* Review submission form styling (for review.html) */
+.review-form-wrapper {
+    max-width: 500px;
+    margin: 0 auto 50px;
+    padding: 0 20px;
+}
+
+.review-form {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.review-form h3 {
+    text-align: center;
+    color: #3b141c;
+    font-size: 1.4rem;
+}
+
+.review-form select,
+.review-form textarea {
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.review-form textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.review-form button {
+    padding: 12px;
+    background: #3b141c;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    border: none;
+    transition: 0.3s ease;
+}
+
+.review-form button:hover {
+    background: #f3961c;
+    color: #000;
+}
+
+.nav-menu .welcome-text {
+    cursor: default;
+    background: transparent !important;
+    color: #f3961c !important;
+    font-weight: 600;
+}

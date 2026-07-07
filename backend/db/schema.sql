@@ -19,17 +19,18 @@ CREATE TABLE IF NOT EXISTS menu_items (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
--- ORDERS TABLE
+--- ORDERS TABLE
 CREATE TABLE IF NOT EXISTS orders (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER NOT NULL,
-    payment_method TEXT NOT NULL CHECK (payment_method IN ('Cash', 'Card')),
+    payment_method TEXT NOT NULL CHECK (payment_method IN ('Telebirr', 'Bank Transfer')),
+    transaction_id TEXT,
+    phone_number TEXT,
     status TEXT NOT NULL DEFAULT 'pending' CHECK (status IN ('pending', 'confirmed', 'completed', 'cancelled')),
     total_price REAL NOT NULL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
-
 -- ORDER ITEMS TABLE (each order can have multiple coffee items)
 CREATE TABLE IF NOT EXISTS order_items (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
