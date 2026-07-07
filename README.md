@@ -1,4 +1,4 @@
-# Coffee Shop — Full-Stack Web Application
+# Coffee Shop —Web Application
 
 ## Project Description
 
